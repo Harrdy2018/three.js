@@ -88,3 +88,10 @@
 	gui.add(text,'rotationSpeedX',0,2).name("绕X轴旋转速度");
 ```
 * [Source Code](demo-6.html)
+***
+## 7 获取面板的DOM对象
+* 通过 gui.domElement 我们可以获取到控制面板原生 dom 对象。比如我们将面板位置改成页面左上角
+![](demo-7.png)
+```js
+```
+* [Source Code](demo-7.html)
