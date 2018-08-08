@@ -10,4 +10,6 @@
 	var gui=new dat.GUI();
 	gui.add(text,'rotationSpeed',0,2).name("旋转速度");
 ```
+![](#demo-4.html)
 * [Source Code](demo-4.html)
+
