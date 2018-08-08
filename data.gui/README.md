@@ -93,5 +93,14 @@
 * 通过 gui.domElement 我们可以获取到控制面板原生 dom 对象。比如我们将面板位置改成页面左上角
 ![](demo-7.png)
 ```js
+	var FizzyText=function()
+	{
+		this.rotationSpeedX=0;
+	}
+	var text=new FizzyText();
+	var gui=new dat.GUI();
+	gui.remember(text);
+	gui.add(text,'rotationSpeedX',0,2).name("绕X轴旋转速度");
+	gui.domElement.style="position:absolute;top:0px;left:0px";
 ```
 * [Source Code](demo-7.html)
