@@ -12,4 +12,34 @@
 ```
 ![](demo-4.png)
 * [Source Code](demo-4.html)
-
+***
+## 5 控制项分组
+* 如果控制面板上的项目太多，可以考虑将一些功能近似的控制项分到一个分组文件夹中，这样可以让结构更加清晰。
+```js
+	var FizzyText=function()
+	{
+		this.rotationSpeedX=0;
+		this.rotationSpeedY=0;
+		this.rotationSpeedZ=0;
+		this.x=0;
+		this.y=0;
+		this.z=0;
+	}
+	var text=new FizzyText();
+	var gui=new dat.GUI();
+	//第一个分组
+	var f1=gui.addFolder('Position');
+	f1.add(text,'x');
+	f1.add(text,'y');
+	f1.add(text,'z');
+	//第二个分组
+	var f2=gui.addFolder('rotationSpeed');
+	f2.add(text,'rotationSpeedX',0,2).name("绕X轴旋转速度");
+	f2.add(text,'rotationSpeedY',0,2).name("绕Y轴旋转速度");
+	f2.add(text,'rotationSpeedZ',0,2).name("绕Z轴旋转速度");
+	//第二个分组默认打开
+	f2.open();
+```
+![](demo-5.png)
+* [Source Code](demo-5.html)
+***
