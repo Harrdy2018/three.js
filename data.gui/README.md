@@ -43,3 +43,15 @@
 ![](demo-5.png)
 * [Source Code](demo-5.html)
 ***
+## 6 存储模式
+* 6.1 使用 remember 方法可以开启 GUI 的存储模式（而且可以分组存储）
+```js
+	var FizzyText=function()
+	{
+		this.rotationSpeedX=0;
+	}
+	var text=new FizzyText();
+	var gui=new dat.GUI();
+	gui.remember(text);
+	gui.add(text,'rotationSpeedX',0,2).name("绕X轴旋转速度");
+```
