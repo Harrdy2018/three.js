@@ -66,5 +66,25 @@
 ***
 ![](demo-6-Set.png)
 ***
-* 6.5 我们也可以把之前保存的分组配置数据在初始化时导入
+* 我们也可以把之前保存的分组配置数据在初始化时导入
+```js
+	var FizzyText=function()
+	{
+		this.rotationSpeedX=0;
+	}
+	var text=new FizzyText();
+	var gui=new dat.GUI({
+        load: {
+            "preset": "Default",
+            "closed": false,
+            "remembered": {
+                "Default": {"0": {"rotationSpeedX": 0}},
+                "Default2": {"0": {"rotationSpeedX": 0.08045254556882464}}
+            },
+            "folders": {}
+        }
+    });
+	gui.remember(text);
+	gui.add(text,'rotationSpeedX',0,2).name("绕X轴旋转速度");
+```
 * [Source Code](demo-6.html)
