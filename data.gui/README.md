@@ -18,16 +18,13 @@ dat.gui 是一个轻量级的图形用户界面库（GUI 组件），使用这�
 	var FizzyText=function()
 	{
 		this.rotationSpeedX=0;
-		this.x=0;
-		this.y=0
-		this.z=0;
 	}
 	var text=new FizzyText();
 ```
 * 接下来需要将这个 JavaScript 对象传递给 dat.gui 对象，并设置各个属性的取值范围
 ```js
 var gui1=new dat.GUI();
-	gui1.add(text,'rotationSpeedX',{'Stopped':0.05,'Slow':1,'Fast':5}).name("绕X轴旋转速度");
+	gui1.add(text,'rotationSpeedX',0,2);
 ```
 * 最后当用户对 dat.GUI 控件进行操作时，text 里的属性值也会同步修改。我们在程序中直接引用这个属性值就好了
 
