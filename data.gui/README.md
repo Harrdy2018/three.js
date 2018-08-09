@@ -148,5 +148,6 @@
 	gui2.add(text,'y',-10,10);
 	gui2.add(text,'z',-10,10);
 ```
+* 我们创建两个 GUI 对象，第一个位于默认的右上角位置，第二个放置在界面左上角。效果图如下：
 ![](demo-9.png)
 * [Source Code](demo-9.html)
