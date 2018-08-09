@@ -51,7 +51,7 @@ var gui1=new dat.GUI();
 	});
 ```
 * 我们拖动滑块改变值，可以观察到控制台输出
-* [Source Code](demo-3.html）
+* [Source Code](demo-3.html)
 
 ***
 ## 4 设置控制项标签文字
