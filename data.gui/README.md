@@ -1,5 +1,7 @@
 # three.js 插件之 data.gui.js 实现图形控制界面
-## 基本介绍
+
+***
+## 1 基本介绍
 ### 什么是data.gui
 ```
 dat.gui 是一个轻量级的图形用户界面库（GUI 组件），使用这个库可以很容易地创建出能够改变代码变量的界面组件
@@ -29,6 +31,57 @@ var gui1=new dat.GUI();
 ```
 * 最后当用户对 dat.GUI 控件进行操作时，text 里的属性值也会同步修改。我们在程序中直接引用这个属性值就好了
 
+***
+## 2 各种类型的控件
+* dat.GUI 会根据我们设置的属性类型来渲染使用不同的控件
+### 2.1 数字类型（Number)
+```
+//存放有所有需要改变的属性的对象
+var text = new function () {
+    this.rotationSpeed = 0.02;
+};
+```
+* 如果没有设置限制条件，则为一个 input 输入框
+```js
+var gui = new dat.GUI();
+gui.add(text, 'rotationSpeed');
+```
+* 可以设置最小值最大值范围，则显示为 slider 滑块组件（当然右侧还是有 input 输入）
+```js
+var gui = new dat.GUI();
+gui.add(text, 'rotationSpeed', 0, 0.5);
+```
+* 还可以只单独限制最小值或者最大值，这个同样为一个 input 输入框
+```js
+var gui = new dat.GUI();
+gui.add(text, 'rotationSpeedX').min(0);
+gui.add(text, 'rotationSpeedY').max(10);
+```
+* 可以配合 step 限制步长
+```js
+var gui = new dat.GUI();
+gui.add(text, 'rotationSpeedX').step(0.5);
+gui.add(text, 'rotationSpeedY', 0, 3).step(0.5);
+gui.add(text, 'rotationSpeedZ').max(10).step(0.5);
+```
+* 如果数字只是有限的几种固定值，那还可以使用下拉框的形式
+```js
+var gui = new dat.GUI();
+gui.add(text, 'rotationSpeed', { 'Stopped': 0, 'Slow': 0.02, 'Fast': 5 });
+```
+### 2.2 字符串类型（String）
+* 默认情况下就是一个 input 输入框
+```js
+var text = new function () {
+    this.author = "Harrdy"
+};
+ 
+var gui = new dat.GUI();
+gui.add(controls, 'author');
+```
+* 
+
+***
 ## 3 事件监听
 * 对于面板中的每一个控制项，我们都可以设置 onChange 和 onFinishChange 监听事件。
 ```js
