@@ -125,3 +125,28 @@
 * 可以看到控制面板中 speed 项的值每隔 500ms 就会自动改变一次
 ![](demo-8.png)
 * [Source Code](demo-8.html)
+
+***
+## 9 创建多个 GUI 对象
+* 我们可以通过构造函数 dat.GUI() 创建多个 GUI 对象，每个对象对应的都是一个独立的控制面板
+```js
+	var FizzyText=function()
+	{
+		this.rotationSpeedX=0;
+		this.x=0;
+		this.y=0
+		this.z=0;
+	}
+	var text=new FizzyText();
+
+	var gui1=new dat.GUI();
+	gui1.add(text,'rotationSpeedX',{'Stopped':0.05,'Slow':1,'Fast':5}).name("绕X轴旋转速度");
+	
+	var gui2=new dat.GUI();
+	gui2.domElement.style="position:absolute;top:0px;left:0px;width:50px";
+	gui2.add(text,'x',-10,10);
+	gui2.add(text,'y',-10,10);
+	gui2.add(text,'z',-10,10);
+```
+![](demo-9.png)
+* [Source Code](demo-9.html)
