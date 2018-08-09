@@ -29,6 +29,30 @@ var gui1=new dat.GUI();
 ```
 * 最后当用户对 dat.GUI 控件进行操作时，text 里的属性值也会同步修改。我们在程序中直接引用这个属性值就好了
 
+## 3 事件监听
+* 对于面板中的每一个控制项，我们都可以设置 onChange 和 onFinishChange 监听事件。
+```js
+	var FizzyText=function()
+	{
+		this.rotationSpeedX=0;
+	}
+	var text=new FizzyText();
+	var gui1=new dat.GUI();
+	var speedController=gui1.add(text,'rotationSpeedX',0,1).name("绕X轴旋转速度");
+	//对应控制项值改变时响应（比如拖动滑块过程中）
+	speedController.onChange(function(value) 
+	{
+  		console.log("onChange:" + value);
+	});
+	//对应控制项值修改完毕响应
+	speedController.onFinishChange(function(value) 
+	{
+  		console.log("onFinishChange" + value);
+	});
+```
+* 我们拖动滑块改变值，可以观察到控制台输出
+* [Source Code](demo-3.html）
+
 ***
 ## 4 设置控制项标签文字
 * 默认情况下每个控制项左侧的标签显示的是对应的属性名，我们可以通过 name 方法设置成其他的文字（中文也是支持的）
