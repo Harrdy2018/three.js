@@ -15,11 +15,18 @@ dat.gui 是一个轻量级的图形用户界面库（GUI 组件），使用这�
 ```
 * 定义一个 JavaScript 对象（这里假设叫做 FizzyText），然后初始化对象，该对象将保存希望通过 dat.GUI 改变的属性。
 ```js
+	//先构造，然后初始化
 	var FizzyText=function()
 	{
 		this.rotationSpeedX=0;
 	}
 	var text=new FizzyText();
+	
+	//也可以直接一步到位，可以体会一下
+	var text=new function()
+	{
+		this.rotationSpeedX=0;
+	}
 ```
 * 接下来需要将这个 JavaScript 对象传递给 dat.gui 对象，并设置各个属性的取值范围
 ```js
