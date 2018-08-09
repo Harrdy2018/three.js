@@ -1,4 +1,13 @@
-# three.js 插件之 data.gui.js 使用详细
+# three.js 插件之 data.gui.js 实现图形控制界面
+## 基本介绍
+### 什么是data.gui
+```
+dat.gui 是一个轻量级的图形用户界面库（GUI 组件），使用这个库可以很容易地创建出能够改变代码变量的界面组件
+```
+* GitHub 主页：`https://github.com/dataarts/dat.gui`
+* data.gui 官方实例： `https://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage`
+
+***
 ## 4 设置控制项标签文字
 * 默认情况下每个控制项左侧的标签显示的是对应的属性名，我们可以通过 name 方法设置成其他的文字（中文也是支持的）
 ```javascript
