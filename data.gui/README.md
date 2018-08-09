@@ -104,3 +104,24 @@
 	gui.domElement.style="position:absolute;top:0px;left:0px";
 ```
 * [Source Code](demo-7.html)
+
+***
+## 8 从 GUI 外部控制配置项
+* 如果我们想不通过操作控制面板，而是从外部修改控制项数据。
+* 可以让控制项调用 listen 方法，这样当我们改变数据时，也会同步到面板里。
+```js
+	var FizzyText=function()
+	{
+		this.rotationSpeedX=0;
+	}
+	var text=new FizzyText();
+	var gui=new dat.GUI();
+	gui.add(text,'rotationSpeedX',0,2).name("绕X轴旋转速度").listen();
+	setInterval(function()
+	{
+		text.rotationSpeedX=Math.random();
+	},500);
+```
+* 可以看到控制面板中 speed 项的值每隔 500ms 就会自动改变一次
+![](demo-8.png)
+* [Source Code](demo-8.html)
