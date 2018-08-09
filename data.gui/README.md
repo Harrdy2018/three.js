@@ -74,9 +74,55 @@ var text = new function () {
 };
  
 var gui = new dat.GUI();
-gui.add(controls, 'author');
+gui.add(text, 'author');
 ```
-* 
+* 只是有限的几种固定值，那还可以使用下拉框的形式
+```js
+var text = new function () {
+    this.author = "Harrdy"
+};
+ 
+var gui = new dat.GUI();
+gui.add(text, 'author', [ 'Harrdy', 'Harrdy2017', 'Harrdy2018' ]);
+```
+### 2.3 布尔类型（Boolean ）
+* 使用复选框（Checkbox）的形式控制
+```js
+var text = new function () {
+    this.visible = true
+};
+ 
+var gui = new dat.GUI();
+gui.add(text, 'visible');
+```
+### 2.4 自定义函数（Function）
+* 使用按钮（button）的形式控制，点击按钮会调用相应的方法
+```js
+var controls = new function () {
+    this.hello = function() {
+      alert("欢迎 Harrdy");
+    }
+};
+ 
+var gui = new dat.GUI();
+gui.add(controls, 'hello');
+```
+### 2.5 颜色值
+* dat.GUI 一共提供了 4 种类型颜色输入控制：CSS、RGB、RGBA、Hue（注意：颜色使用 addColor 方法添加控件）
+```js
+var controls = new function () {
+    this.color0 = "#ffae23"; // CSS string
+    this.color1 = [0, 128, 255]; // RGB array
+    this.color2 = [0, 128, 255, 0.3]; // RGB with alpha
+    this.color3 = {h: 350, s: 0.9, v: 0.3}; // Hue, saturation, value
+};
+ 
+var gui = new dat.GUI();
+gui.addColor(controls, 'color0');
+gui.addColor(controls, 'color1');
+gui.addColor(controls, 'color2');
+gui.addColor(controls, 'color3');
+```
 
 ***
 ## 3 事件监听
